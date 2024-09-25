@@ -1,23 +1,30 @@
 package CODE;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Student {
     private String studentId;
-    private List<Assignment> submittedAssignments;
+    private Set<Assignment> submittedAssignments;
 
     public Student(String studentId) {
         this.studentId = studentId;
-        this.submittedAssignments = new ArrayList<>();
+        this.submittedAssignments = new HashSet<>();
     }
 
     public String getStudentId() {
+
         return studentId;
     }
 
-    public void submitAssignment(Assignment assignment) {
-        submittedAssignments.add(assignment);
+    public boolean submitAssignment(Assignment assignment) {
+        return submittedAssignments.add(assignment);
     }
+    public boolean isAssignment(Assignment assignment){
+        return submittedAssignments.contains(assignment);
+    }
+
 }
 
