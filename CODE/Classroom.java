@@ -19,10 +19,12 @@ public class Classroom {
     }
 
     public Student getStudent(String studentId) {
-        return students.stream()
-                .filter(student -> student.getStudentId().equals(studentId))
-                .findFirst()
-                .orElse(null);
+        for (Student student : students) {
+            if (student.getStudentId().equals(studentId)) {
+                return student;
+            }
+        }
+        return null;
     }
 
     public void scheduleAssignment(Assignment assignment) {
